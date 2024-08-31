@@ -23,7 +23,6 @@ public class StudentController : Controller
     {
         _bufferFileUploadService = bufferFileUploadService;
     }
-
     
     public IActionResult Index()
     {
