@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "_Layout";
+    Layout = "MyLayoutHelper";
 }
 @model Student
 
@@ -50,7 +50,7 @@
         <div style="margin-top:7px" class="form-group row">
             <label asp-for="Gender" class="col-sm-2 col-form-label"></label>
             <div class="col-sm-10">
-                @foreach (var gender in @ViewBag.AllGenders)
+                @foreach (var gender in ViewBag.AllGenders)
                 {
                     <label class="form-check-label">
                         <input type="radio" asp-for="Gender" value="@gender" id="Gender@(gender)" class="form-check-input"/> @gender
