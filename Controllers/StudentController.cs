@@ -23,6 +23,7 @@ public class StudentController : Controller
     {
         _bufferFileUploadService = bufferFileUploadService;
     }
+
     
     public IActionResult Index()
     {
@@ -53,12 +54,11 @@ public class StudentController : Controller
                 var photoPath = await _bufferFileUploadService.UploadFile(student.Photo);
                 student.PhotoPath = photoPath;
             }
-
+            
             student.Id = _listStudents.Last().Id + 1;
             _listStudents.Add(student);
             return View("Index", _listStudents);
         }
-        
         ViewBag.AllGenders = Enum.GetValues(typeof(Gender)).Cast<Gender>().ToList();
         ViewBag.AllBranches = new List<SelectListItem>()
         {
@@ -67,6 +67,6 @@ public class StudentController : Controller
             new SelectListItem {Text="CE", Value ="3"},
             new SelectListItem {Text="EE", Value ="4"}
         };
-        return View();
+        return View(student);
     }
 }
