@@ -1,0 +1,11 @@
+@{
+ViewData["Title"] = "Index";
+Layout = "~/Views/Shared/MyLayoutHelper.cshtml";
+}
+@model IEnumerable<Learner>
+<div class="ms-2 mx-2">
+    <h1>Learner List</h1>
+    @await Component.InvokeAsync("Major")
+    <partial name="LearnerTable"/>
+    <a asp-action="Create" class="btn btn-primary">Create New Student</a>
+</div>
